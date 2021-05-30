@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1622374430 source:d:\progettimingw\mg21wadutil\wadprocessor.c
+	"wadprocessor.h"
+	"doomtypes.h"
+	"wadfile.h"
+	<string.h>
+	<ctype.h>
+
+1622374430 d:\progettimingw\mg21wadutil\wadprocessor.h
+	"wadfile.h"
+
+1622374429 d:\progettimingw\mg21wadutil\wadfile.h
+	"doomtypes.h"
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	<stdbool.h>
+
+1622374429 d:\progettimingw\mg21wadutil\doomtypes.h
+	<stdint.h>
+	<limits.h>
+
