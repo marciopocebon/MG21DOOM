@@ -1,6 +1,9 @@
 ## MG21DOOM
  Doom port to the Ikea Tradfri RGB1923R5 lamp and any device using Silicon labs EFR32MG21 based modules.
  Coded by Nicola Wrachien.
+ 
+ **WARNING**
+ Do not try to power up the lamp directly from the AC mains! Use a 5 to 30V (maximum) DC power source!
 
 **Features**
 - Based on the excellent doomhack's GBA Doom Port (https://github.com/doomhack/GBADoom) with some Kippykip's additions.

@@ -26,11 +26,26 @@ int main(int argc, char *argv[])
         printf("Usage: %s <input wad> <output wad>\r\n", argv[0]);
         return 0;
     }
-    loadWad(argv[1], &wadfile );
+    if (!loadWad("gbadoom.wad", &gbawadfile))
+    {
+        printf("Error, gbadoom.wad must reside on the same directory of this program.\r\n");
+        return 1;
+    }
+    if (!loadWad(argv[1], &wadfile ))
+    {
+        printf("Cannot open %s\r\n", argv[1]);
+        return 1;
+    }
     processWad(&wadfile, false);
-    loadWad("gbadoom.wad", &gbawadfile);
     mergeWadFile(&wadfile, &gbawadfile);
-    saveWad(argv[2], &wadfile, 'I');
+    if (saveWad(argv[2], &wadfile, 'I'))
+    {
+        printf("Saved %s.\r\n", argv[2]);
+    }
+    else
+    {
+        printf("Cannt save %s.\r\n", argv[2]);
+    }
 #else
     loadWad("doom1.wad", &wadfile );
     processWad(&wadfile, false);

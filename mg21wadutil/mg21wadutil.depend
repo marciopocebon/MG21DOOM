@@ -20,3 +20,14 @@
 	<stdint.h>
 	<limits.h>
 
+1622554982 source:d:\progettimingw\mg21wadutil\wadfile.c
+	"wadfile.h"
+	"doomtypes.h"
+	<string.h>
+
+1622554989 source:d:\progettimingw\mg21wadutil\main.c
+	<stdio.h>
+	<stdlib.h>
+	"wadfile.h"
+	"wadprocessor.h"
+

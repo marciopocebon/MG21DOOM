@@ -87,7 +87,7 @@ bool loadWad(const char *fileName, wadfile_t *wadfile)
         }
     }
     free(tmpBuffer);
-    return true;
+    return res;
 }
 bool saveWad(const char *fileName, wadfile_t *wadfile, char wadType)
 {
@@ -95,6 +95,8 @@ bool saveWad(const char *fileName, wadfile_t *wadfile, char wadType)
     FILE * fp;
     // open file
     fp = fopen (fileName, "wb");
+    if (fp == NULL)
+        return false;
     wadfile->header.identification[0] = wadType;
     wadfile->header.identification[1] = 'W';
     wadfile->header.identification[2] = 'A';
@@ -121,7 +123,6 @@ bool saveWad(const char *fileName, wadfile_t *wadfile, char wadType)
     }
     fclose(fp);
     return true;
-
 }
 int getLumpNumByName(wadfile_t *wadfile, const char *name)
 {

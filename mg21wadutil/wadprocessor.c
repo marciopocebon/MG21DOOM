@@ -527,7 +527,7 @@ bool removeUnusedLumps(wadfile_t *wadfile, bool removeSound)
            (startsWith(name, "DS") && removeSound && !startsWith(name, "DSPISTOL"))||
            startsWith(name, "GENMIDI"))
         {
-            printf("removing lump %s\r\n", l->lump.name);
+            //printf("removing lump %s\r\n", l->lump.name);
             removeLump(wadfile, i);
             i--;
         }
