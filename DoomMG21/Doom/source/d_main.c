@@ -281,8 +281,12 @@ static void D_DoomLoop(void)
     int oldMaxDivisions = 0;
     int oldLumpByNameRequests = 0;
 #if DEBUG_SETUP
+    // this to launch directly a new game without having to press keys...
+    // useful if you are in a hurry and want to test if new code is faster or slower.
     bool startedGame = false;
 #endif
+    // set default behavior of ammo widget.
+    _g->fps_show = SHOW_FPS;
     // allocate sound buffer.
     if (!nosfxparm)
     {
@@ -341,9 +345,6 @@ static void D_DoomLoop(void)
             printf("Max lumpByNameRequest per frame increased to %d\r\n", lumpByNameRequest);
 
         }
-#if DEBUG_SETUP
-        _g->fps_show = SHOW_FPS;
-#endif
         if (_g->fps_show)
         {
             D_UpdateFPS();

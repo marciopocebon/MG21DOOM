@@ -42,11 +42,12 @@
 #define DEBUG_SETUP 0
 #if DEBUG_SETUP
 #define WSTKBOARD 1
-#define START_MAP 6
+#define START_MAP 1
 #define SHOW_FPS true
 #else
 #define WSTKBOARD 0
 #define START_MAP 1
+#define SHOW_FPS false
 #endif
 
 #if WSTKBOARD

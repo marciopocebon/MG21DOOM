@@ -2246,16 +2246,6 @@ static void R_DrawColumnInCache(const column_t *patch, byte *cache, int originy,
  * straight from const patch_t*.
  */
 
-#define CACHE_WAYS 4
-
-#define CACHE_MASK (CACHE_WAYS-1)
-#define CACHE_STRIDE (128 / CACHE_WAYS)
-#define CACHE_KEY_MASK (CACHE_STRIDE-1)
-
-#define CACHE_ENTRY(c, t) ((c << 16 | t))
-
-#define CACHE_HASH(c, t) (((c >> 1) ^ t) & CACHE_KEY_MASK)
-
 static const byte* R_ComposeColumn(const texture_t *tex, int texcolumn, unsigned int iscale)
 {
     // TODO: clean up this mess
@@ -2264,6 +2254,7 @@ static const byte* R_ComposeColumn(const texture_t *tex, int texcolumn, unsigned
         printf("Error, found a texture at address 0x%08X\r\n", (unsigned int) tex);
         while (1);
     }
+#if ENABLE_MIPMAP
     int colmask = 0xfffe;
     if (tex->width > 8)
     {
@@ -2276,7 +2267,11 @@ static const byte* R_ComposeColumn(const texture_t *tex, int texcolumn, unsigned
     }
 
     const int xc = (texcolumn & colmask) & tex->widthmask;
-
+#else
+    // 2021/06/05 next-hack: since we do not implement any cache, there is no point of mip-mapping
+    // in fact mip-mapping was probably added by doomhack to increase hit/miss ratio.
+    const int xc = (texcolumn & tex->widthmask);
+#endif
     unsigned int i = 0;
     unsigned int patchcount = tex->patchcount;
 
