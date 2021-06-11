@@ -119,8 +119,8 @@ void initSystem()
     // Enable radio clk to have access to SEQ and FCR ram.
     CMU->RADIOCLKCTRL = CMU_RADIOCLKCTRL_EN;
     SYSCFG->RADIORAMCTRL = SYSCFG_RADIORAMCTRL_FRCRAMPREFETCHEN | SYSCFG_RADIORAMCTRL_FRCRAMCACHEEN
-    // | SYSCFG_RADIORAMCTRL_FRCRAMWSEN // overclock!
-    // | SYSCFG_RADIORAMCTRL_SEQRAMWSEN // overclock!
+     | SYSCFG_RADIORAMCTRL_FRCRAMWSEN // overclock if commented!
+     | SYSCFG_RADIORAMCTRL_SEQRAMWSEN // overclock if commented!
     | SYSCFG_RADIORAMCTRL_SEQRAMCACHEEN | SYSCFG_RADIORAMCTRL_SEQRAMPREFETCHEN;
 
     // set clocks
@@ -244,7 +244,9 @@ int main(void)
     uint32_t time = I_GetTimeDeciMicrosecs();
     setDisplayPen(2, 0);
 
-    displayPrintln(1, "Doom port to Tradfri");
+    displayPrintln(1, "Doom port to IKEA");
+    displayPrintln(1, "TRADFRI RGB GU 10");
+    displayPrintln(1, "Lamp LED1923R5.");
     displayPrintln(1, "");
     displayPrintln(1, "Flash size %d", spiFlashGetSize());
     setDisplayPen(3, 0);
