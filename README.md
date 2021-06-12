@@ -45,4 +45,4 @@
 The schematics of the prototype are in the hardware subdirectory. Kicad PCB project will be released soon.
 
 ## Building, developing, etc:
-See https://next-hack.com/ for more information!
+See https://next-hack.com/index.php/2021/06/12/lets-port-doom-to-an-ikea-tradfri-lamp/ for more information!
